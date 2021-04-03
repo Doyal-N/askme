@@ -3,7 +3,7 @@ require 'openssl'
 class User < ApplicationRecord
   ITERATIONS = 20_000
   DIGEST = OpenSSL::Digest.new('SHA256')
-  EMAIL_FORMAT = /^[\w+]+@[\w.]+$/.freeze
+  EMAIL_FORMAT = /\A[\w+]+@[\w]+\.[a-z]+\z/.freeze
   USERNAME_FORMAT = /\w+/.freeze
 
   attr_accessor :password
