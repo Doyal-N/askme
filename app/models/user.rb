@@ -18,7 +18,7 @@ class User < ApplicationRecord
   validates :email, format: { with: EMAIL_FORMAT }
   validates :username, format: { with: USERNAME_FORMAT }
 
-  before_validation :normalize_username
+  before_validation :normalize_username, :normalize_email
   before_save :encrypt_password
 
   def self.hash_to_string(password_hash)
@@ -45,6 +45,10 @@ class User < ApplicationRecord
 
   def normalize_username
     self.username = username.downcase if username.present?
+  end
+
+  def normalize_email
+    self.email = email.downcase if email.present?
   end
 
   def encrypt_password
