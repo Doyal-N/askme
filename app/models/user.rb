@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   attr_accessor :password
 
+  has_many :questions, dependent: :destroy
+
   validates :password, presence: true, on: :create
   validates :password, confirmation: true
   validates :username, :email, presence: true
@@ -15,8 +17,6 @@ class User < ApplicationRecord
   validates :username, :email, uniqueness: true
   validates :email, format: { with: EMAIL_FORMAT }
   validates :username, format: { with: USERNAME_FORMAT }
-
-  has_many :questions, dependent: :destroy
 
   before_validation :normalize_username
   before_save :encrypt_password
