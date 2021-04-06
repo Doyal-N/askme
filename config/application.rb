@@ -1,7 +1,6 @@
 require_relative "boot"
 
 require "rails"
-# Pick the frameworks you want:
 require "active_model/railtie"
 require "active_job/railtie"
 require "active_record/railtie"
@@ -23,6 +22,12 @@ module Askme
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
+
+    config.generators do |g|
+      g.helper false
+      g.decorator false
+      g.temlate_engine :slim
+    end
 
     # Configuration for the application, engines, and railties goes here.
     #

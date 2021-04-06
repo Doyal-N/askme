@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title Askme
+    meta content="width=device-width,initial-scale=1" name="viewport"
+    meta charset="UTF-8"
+    title Хорошие вопросы
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_pack_tag 'application'
+  body
+  .header
+    .container
+      .header-logo
+        h1.header-title= link_to 'Хорошие вопросы', root_path
+
+  .content
+    .container
+      = yield
