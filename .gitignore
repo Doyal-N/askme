@@ -40,3 +40,5 @@ yarn-debug.log*
 .yarn-integrity
 
 .rubocop.yml
+.env
+.vscode

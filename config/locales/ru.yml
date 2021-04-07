@@ -1,0 +1,18 @@
+ru:
+  users:
+    show:
+      questions_count:
+        few: "Юзер получил - %{count} вопроса"
+        many: "Юзер получил - %{count} вопросов"
+        one: "Юзер получил - %{count} вопрос"
+        other: "Юзер получил - %{count} вопроса"
+      answered_questions:
+        few: "Дал - %{count} ответа"
+        many: "Дал - %{count} ответов"
+        one: "Дал - %{count} ответ"
+        other: "Дал - %{count} ответа"
+      unanswered_questions:
+        few: "Пока без ответа - %{count} вопроса"
+        many: "Пока без ответа - %{count} вопросов"
+        one: "Пока без ответа - %{count} вопрос"
+        other: "Пока без ответа - %{count} вопроса"

@@ -1,0 +1,36 @@
+.user-header.text-center
+  h1.title-medium
+    = @user.name
+
+  .user-image-div
+    = image_tag(@user.decorate.user_avatar, class: 'user-image', alt: '[Фото]')
+
+  h2.title-small.buffer-both
+    = "#{@user.username}"
+    .count-info
+      p= t('.questions_count', count: @questions_count)
+      p= t('.answered_questions', count: @answered_questions_count)
+      - unless @unanswered_questions_count.zero?
+        p= t('.unanswered_questions', count: @unanswered_questions_count)
+
+  .user-ask-button.container.text-center
+    = link_to "Спроси меня", '', class: 'button button-light', id: 'ask-button'
+
+.user-question-form-div.column-1-4.column-1-4-right id='ask-form'
+  .user-question-form.buffer-both
+
+    .form
+      = form_for Question.new do |f|
+        = f.hidden_field :user_id
+        .form-field
+          = f.label "Ваш вопрос для #{@user.username}", class: 'form-label'
+          = f.text_area :text, class: 'form-textarea'
+
+        .form-action
+          = submit_tag 'Задать вопрос', class: 'button button-small button-dark'
+
+.column-3-4
+  .user-questions.buffer-both
+    .questions-list
+      - @questions.each do |question|
+        = render partial: 'questions/question', object: question

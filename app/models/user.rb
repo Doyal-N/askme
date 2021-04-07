@@ -3,22 +3,21 @@ require 'openssl'
 class User < ApplicationRecord
   ITERATIONS = 20_000
   DIGEST = OpenSSL::Digest.new('SHA256')
-  EMAIL_FORMAT = /\A[\w+]+@[\w]+\.[a-z]+\z/.freeze
-  USERNAME_FORMAT = /\w+/.freeze
+  EMAIL_FORMAT = /\A\w+@\w+\.[a-z]+\z/.freeze
+  USERNAME_FORMAT = /\A\w+\z/.freeze
 
   attr_accessor :password
 
-  validates :password, presence: { on: :create }
+  has_many :questions, dependent: :destroy
+
+  validates :password, presence: true, on: :create
   validates :password, confirmation: true
-  validates :username, :email, presence: true
+  validates :username, :email, presence: true, uniqueness: true
   validates :username, length: { maximum: 40 }
-  validates :username, :email, uniqueness: true
   validates :email, format: { with: EMAIL_FORMAT }
   validates :username, format: { with: USERNAME_FORMAT }
 
-  has_many :questions, dependent: :destroy
-
-  before_validation :normalize_username
+  before_validation :normalize_username, :normalize_email
   before_save :encrypt_password
 
   def self.hash_to_string(password_hash)
@@ -44,7 +43,11 @@ class User < ApplicationRecord
   private
 
   def normalize_username
-    self.username = username.downcase
+    self.username = username.downcase if username.present?
+  end
+
+  def normalize_email
+    self.email = email.downcase if email.present?
   end
 
   def encrypt_password
