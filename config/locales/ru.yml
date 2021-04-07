@@ -1,0 +1,8 @@
+ru:
+  users:
+    show:
+      questions_count:
+        few: "Порешал %{count} вопроса"
+        many: "Порешал %{count} вопросов"
+        one: "Порешал %{count} вопрос"
+        other: "Порешал %{count} вопроса"

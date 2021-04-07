@@ -7,7 +7,7 @@
 
   h2.title-small.buffer-both
     = "#{@user.username}"
-    p= "Порешал #{@user.questions.count} #{@user.decorate.correct_ending('вопрос', 'вопроса', 'вопросов')}"
+    p= t('.questions_count', count: @questions_count)
 
   .user-ask-button.container.text-center
     = link_to "Спроси меня", '', class: 'button button-light', id: 'ask-button'
@@ -19,7 +19,7 @@
       = form_for Question.new do |f|
         = f.hidden_field :user_id
         .form-field
-          = f.label "Ваш вопрос для @#{@user.username}", class: 'form-label'
+          = f.label "Ваш вопрос для #{@user.username}", class: 'form-label'
           = f.text_area :text, class: 'form-textarea'
 
         .form-action

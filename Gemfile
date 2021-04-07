@@ -7,6 +7,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'dotenv-rails'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.3'
+gem 'rails-i18n'
 gem 'pg'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.0'
