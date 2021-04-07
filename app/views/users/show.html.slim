@@ -7,7 +7,11 @@
 
   h2.title-small.buffer-both
     = "#{@user.username}"
-    p= t('.questions_count', count: @questions_count)
+    .count-info
+      p= t('.questions_count', count: @questions_count)
+      p= t('.answered_questions', count: @answered_questions_count)
+      - unless @unanswered_questions_count.zero?
+        p= t('.unanswered_questions', count: @unanswered_questions_count)
 
   .user-ask-button.container.text-center
     = link_to "Спроси меня", '', class: 'button button-light', id: 'ask-button'
