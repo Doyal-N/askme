@@ -1,13 +1,19 @@
 .user-header.text-center
   h1.title-medium
-    = @user.name
+    = user.username
+
+  .buffer-both
+    = link_to 'Редактировать профиль', edit_user_path(user) if current_user == user
 
   .user-image-div
     = image_tag(@user.decorate.user_avatar, class: 'user-image', alt: '[Фото]')
 
   h2.title-small.buffer-both
-    = "#{@user.username}"
-    p= t('.questions_count', count: @questions_count)
+    .count-info
+      p= t('.questions_count', count: @questions_count)
+      p= t('.answered_questions', count: @answered_questions_count)
+      -unless @unanswered_questions_count.zero?
+        p= t('.unanswered_questions', count: @unanswered_questions_count)
 
   .user-ask-button.container.text-center
     = link_to "Спроси меня", '', class: 'button button-light', id: 'ask-button'
@@ -16,10 +22,10 @@
   .user-question-form.buffer-both
 
     .form
-      = form_for Question.new do |f|
+      = form_for @new_question do |f|
         = f.hidden_field :user_id
         .form-field
-          = f.label "Ваш вопрос для #{@user.username}", class: 'form-label'
+          = f.label "Ваш вопрос для #{user.username}", class: 'form-label'
           = f.text_area :text, class: 'form-textarea'
 
         .form-action

@@ -2,5 +2,10 @@ Rails.application.routes.draw do
   root 'users#index'
 
   resources :users, except: %i[destroy]
-  resources :questions
+  resources :sessions, only: %i[new create destroy]
+  resources :questions, except: %i[show new index]
+
+  get 'sign_up' => 'users#new'
+  get 'log_out' => 'sessions#destroy'
+  get 'log_in' => 'sessions#new'
 end

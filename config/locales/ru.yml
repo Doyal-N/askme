@@ -2,7 +2,17 @@ ru:
   users:
     show:
       questions_count:
-        few: "Порешал %{count} вопроса"
-        many: "Порешал %{count} вопросов"
-        one: "Порешал %{count} вопрос"
-        other: "Порешал %{count} вопроса"
+        few: "Получил %{count} вопроса"
+        many: "Получил %{count} вопросов"
+        one: "Получил %{count} вопрос"
+        other: "Получил %{count} вопроса"
+      answered_questions:
+        few: "Порешал - %{count} ответа"
+        many: "Порешал - %{count} ответов"
+        one: "Порешал - %{count} ответ"
+        other: "Порешал - %{count} ответа"
+      unanswered_questions:
+        few: "Без ответа - %{count} вопроса"
+        many: "Без ответа - %{count} вопросов"
+        one: "Без ответа - %{count} вопрос"
+        other: "Без ответа - %{count} вопроса"

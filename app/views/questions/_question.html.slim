@@ -9,3 +9,10 @@
 
     .question-date
       = question.decorate.normalize_date
+
+  -if question.user == current_user
+    .question-actions
+      = link_to edit_question_path(question)
+        = content_tag(:i, '', class: "#{question.decorate.true_icon}")
+      = link_to question_path(question), method: :delete, data: {confirm: 'Точно удалить вопрос?'}
+        i.fas.fa-trash-alt
