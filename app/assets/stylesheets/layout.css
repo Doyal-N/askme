@@ -1,6 +1,6 @@
 body {
- background: #262732;
- color: white;
+  background: #262732;
+  color: white;
 }
 
 a {
@@ -30,7 +30,7 @@ a {
 
 .content {
   padding: 0 40px;
-  color: #2e2f41;
+  color: red;
 }
 
 .content-wrapper {
