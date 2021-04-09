@@ -17,12 +17,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @new_question = user.questions.build
-
-    @questions = User.find(params[:id]).questions
+    # @questions = User.find(params[:id]).questions
+    @questions = user.questions
     @questions_count = @questions.length
     @answered_questions_count = @questions.where.not(answer: nil).count
     @unanswered_questions_count = @questions_count - @answered_questions_count
+
+    @new_question = user.questions.build
   end
 
   def edit; end
