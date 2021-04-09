@@ -7,10 +7,10 @@ ru:
         one: "Получил %{count} вопрос"
         other: "Получил %{count} вопроса"
       answered_questions:
-        few: "Порешал - %{count} ответа"
-        many: "Порешал - %{count} ответов"
-        one: "Порешал - %{count} ответ"
-        other: "Порешал - %{count} ответа"
+        few: "Порешал - %{count} вопроса"
+        many: "Порешал - %{count} вопросов"
+        one: "Порешал - %{count} вопрос"
+        other: "Порешал - %{count} вопроса"
       unanswered_questions:
         few: "Без ответа - %{count} вопроса"
         many: "Без ответа - %{count} вопросов"

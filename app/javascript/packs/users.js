@@ -14,3 +14,17 @@ const needPage = function() {
 }
 
 document.addEventListener('DOMContentLoaded', needPage)
+
+const changeHeaderColor = function() {
+  let inputColor = document.querySelector('#header_color')
+
+  if(!inputColor) {
+    return
+  } else {
+    inputColor.addEventListener('input', function() {
+      document.querySelector('.user-header').style.background = inputColor.value
+    })
+  }
+}
+
+document.addEventListener('DOMContentLoaded', changeHeaderColor)
