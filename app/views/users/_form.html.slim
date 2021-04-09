@@ -2,6 +2,10 @@
   = form_for user do |f|
     = render 'shared/errors', resource: user
     .form-field
+      = f.label :name, 'Цвет шапки', class: 'form-label'
+      = f.color_field :header_color
+
+    .form-field
       = f.label :email, 'Логин (email)', class: 'form-label'
       = f.text_field :email, class: 'form-text-field'
 
@@ -10,7 +14,7 @@
       = f.text_field :username, class: 'form-text-field'
 
     .form-field
-      = f.label :name, 'Имя', class: 'form-label'
+      = f.label :header_color, 'Имя', class: 'form-label'
       = f.text_field :name, class: 'form-text-field'
 
     .form-field
