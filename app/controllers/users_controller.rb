@@ -3,8 +3,7 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def new
-  end
+  def new; end
 
   def create
     @user = User.new(user_params)
@@ -19,14 +18,14 @@ class UsersController < ApplicationController
 
   def show
     @new_question = user.questions.build
-    @questions = user.questions.order(created_at: :desc)
+
+    @questions = User.find(params[:id]).questions
     @questions_count = @questions.length
-    @answered_questions_count = user.questions.where.not(answer: nil).count
+    @answered_questions_count = @questions.where.not(answer: nil).count
     @unanswered_questions_count = @questions_count - @answered_questions_count
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if user.update(user_params)
@@ -47,8 +46,10 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password,
-      :password_confirmation, :name, :username, :avatar_url, :header_color)
+    params.require(:user).permit(:email, :password, :password_confirmation,
+                                 :name, :username,
+                                 :avatar_url,
+                                 :header_color)
   end
 
   def user
