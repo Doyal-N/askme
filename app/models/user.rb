@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   attr_accessor :password
 
-  has_many :questions, dependent: :destroy
+  has_many :questions, -> { order(created_at: :desc) }, dependent: :destroy
 
   validates :password, presence: true, on: :create
   validates :password, confirmation: true
@@ -43,11 +43,11 @@ class User < ApplicationRecord
   private
 
   def normalize_username
-    self.username = username.downcase if username.present?
+    username&.downcase!
   end
 
   def normalize_email
-    self.email = email.downcase if email.present?
+    email&.downcase!
   end
 
   def encrypt_password

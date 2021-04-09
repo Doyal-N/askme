@@ -2,17 +2,18 @@ ru:
   users:
     show:
       questions_count:
-        few: "Юзер получил - %{count} вопроса"
-        many: "Юзер получил - %{count} вопросов"
-        one: "Юзер получил - %{count} вопрос"
-        other: "Юзер получил - %{count} вопроса"
+        few: "Получил %{count} вопроса"
+        many: "Получил %{count} вопросов"
+        one: "Получил %{count} вопрос"
+        other: "Получил %{count} вопроса"
       answered_questions:
-        few: "Дал - %{count} ответа"
-        many: "Дал - %{count} ответов"
-        one: "Дал - %{count} ответ"
-        other: "Дал - %{count} ответа"
+        few: "Порешал - %{count} вопроса"
+        many: "Порешал - %{count} вопросов"
+        one: "Порешал - %{count} вопрос"
+        other: "Порешал - %{count} вопроса"
       unanswered_questions:
-        few: "Пока без ответа - %{count} вопроса"
-        many: "Пока без ответа - %{count} вопросов"
-        one: "Пока без ответа - %{count} вопрос"
-        other: "Пока без ответа - %{count} вопроса"
+        few: "Без ответа - %{count} вопроса"
+        many: "Без ответа - %{count} вопросов"
+        one: "Без ответа - %{count} вопрос"
+        other: "Без ответа - %{count} вопроса"
+

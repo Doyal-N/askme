@@ -1,16 +1,21 @@
-.user-header.text-center
+.user-header.text-center style="background: #{user.header_color}"
   h1.title-medium
-    = @user.name
+    = user.username
+
+  .buffer-both
+  - if current_user == user
+    = link_to 'Редактировать профиль', edit_user_path(user)
+    p
+      = link_to 'Удалить профиль', user_path(user), method: :delete, data: { confirm: 'Вы уверены?' }
 
   .user-image-div
     = image_tag(@user.decorate.user_avatar, class: 'user-image', alt: '[Фото]')
 
   h2.title-small.buffer-both
-    = "#{@user.username}"
     .count-info
       p= t('.questions_count', count: @questions_count)
       p= t('.answered_questions', count: @answered_questions_count)
-      - unless @unanswered_questions_count.zero?
+      -unless @unanswered_questions_count.zero?
         p= t('.unanswered_questions', count: @unanswered_questions_count)
 
   .user-ask-button.container.text-center
@@ -20,10 +25,10 @@
   .user-question-form.buffer-both
 
     .form
-      = form_for Question.new do |f|
+      = form_for @new_question do |f|
         = f.hidden_field :user_id
         .form-field
-          = f.label "Ваш вопрос для #{@user.username}", class: 'form-label'
+          = f.label "Ваш вопрос для #{user.username}", class: 'form-label'
           = f.text_area :text, class: 'form-textarea'
 
         .form-action

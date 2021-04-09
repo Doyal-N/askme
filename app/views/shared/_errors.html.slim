@@ -1,0 +1,5 @@
+- if resource.errors.any?
+  .form-errors
+    ul
+      -for message in resource.errors.full_messages
+        li.form-error-message= message
