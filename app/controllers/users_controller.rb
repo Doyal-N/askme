@@ -17,6 +17,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @new_question = user.questions.build
+    @questions = user.questions.order(created_at: :desc)
+    @questions_count = @questions.length
+    @answered_questions_count = user.questions.where.not(answer: nil).count
+    @unanswered_questions_count = @questions_count - @answered_questions_count
+  end
+
   def edit
   end
 
@@ -28,12 +36,10 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
-    @new_question = user.questions.build
-    @questions = user.questions.order(created_at: :desc)
-    @questions_count = @questions.length
-    @answered_questions_count = user.questions.where.not(answer: nil).count
-    @unanswered_questions_count = @questions_count - @answered_questions_count
+  def destroy
+    current_user.destroy
+    session[:user_id] = nil
+    redirect_to root_path, notice: 'Профиль удален, приходите еще!'
   end
 
   helper_method :user
