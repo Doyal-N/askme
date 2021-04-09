@@ -12,9 +12,8 @@ class User < ApplicationRecord
 
   validates :password, presence: true, on: :create
   validates :password, confirmation: true
-  validates :username, :email, presence: true
+  validates :username, :email, presence: true, uniqueness: true
   validates :username, length: { maximum: 40 }
-  validates :username, :email, uniqueness: true
   validates :email, format: { with: EMAIL_FORMAT }
   validates :username, format: { with: USERNAME_FORMAT }
 
