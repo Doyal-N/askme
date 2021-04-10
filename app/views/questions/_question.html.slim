@@ -13,6 +13,11 @@
   -if question.user == current_user
     .question-actions
       = link_to edit_question_path(question)
-        = content_tag(:i, '', class: "#{question.decorate.true_icon}")
+        = content_tag(:i, '', class: "#{question.decorate.action_icon}")
       = link_to question_path(question), method: :delete, data: {confirm: 'Точно удалить вопрос?'}
         i.fas.fa-trash-alt
+
+  / -if question.author.present? && question.user != question.author
+  /   = link_to question.author.username, user_path(question.author), class: 'link-author'
+
+  = question.decorate.author_link

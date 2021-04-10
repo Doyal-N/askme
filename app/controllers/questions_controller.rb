@@ -1,11 +1,14 @@
 class QuestionsController < ApplicationController
+  helper_method :question
+
   before_action :authorize_user, except: [:create]
 
-  def edit
-  end
+  def edit; end
 
   def create
     @question = Question.new(question_params)
+    @question.author = current_user if current_user
+
     if question.save
       redirect_to user_path(question.user), notice: 'Вопрос задан'
     else
@@ -26,8 +29,6 @@ class QuestionsController < ApplicationController
     redirect_to user_path(question.user), notice: 'Вопрос удален :('
   end
 
-  helper_method :question
-
   private
 
   def authorize_user
@@ -35,7 +36,7 @@ class QuestionsController < ApplicationController
   end
 
   def question
-    @question ||= params[:id] ? Question.find(params[:id]) : Question.new
+    @question ||= params[:id].present? ? Question.find(params[:id]) : Question.new
   end
 
   def question_params

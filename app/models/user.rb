@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   attr_accessor :password
 
-  has_many :questions, -> { order(created_at: :desc) }, dependent: :destroy
+  has_many :questions, dependent: :destroy
 
   validates :password, presence: true, on: :create
   validates :password, confirmation: true

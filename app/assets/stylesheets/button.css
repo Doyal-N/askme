@@ -7,6 +7,7 @@
   text-shadow: 2px 1px 1px rgba(0, 0, 0, 0.15);
   font-weight: bold;
   border: none;
+  margin-right: 10px;
 }
 
 .button-dark {

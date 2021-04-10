@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  helper_method :user
+
   def index
     @users = User.all
   end
@@ -17,19 +19,18 @@ class UsersController < ApplicationController
   end
 
   def show
-    @new_question = user.questions.build
-
-    @questions = User.find(params[:id]).questions
+    @questions = user.questions.sorted
     @questions_count = @questions.length
     @answered_questions_count = @questions.where.not(answer: nil).count
     @unanswered_questions_count = @questions_count - @answered_questions_count
+    @new_question = user.questions.build
   end
 
   def edit; end
 
   def update
     if user.update(user_params)
-      redirect_to user, notice: 'Данные обновлены'
+      redirect_to user_path(user), notice: 'Данные обновлены'
     else
       render :edit
     end
@@ -41,8 +42,6 @@ class UsersController < ApplicationController
     redirect_to root_path, notice: 'Профиль удален, приходите еще!'
   end
 
-  helper_method :user
-
   private
 
   def user_params
@@ -53,7 +52,7 @@ class UsersController < ApplicationController
   end
 
   def user
-    @user ||= params[:id] ? User.find(params[:id]) : User.new
+    @user ||= params[:id].present? ? User.find(params[:id]) : User.new
   end
 
   def authorize_user
