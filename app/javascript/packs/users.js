@@ -12,19 +12,19 @@ const needPage = function() {
     askButton.addEventListener('click', toggleForm)
   }
 }
+//изменение цвета шапки, можно сделать реактивно потом
+// document.addEventListener('DOMContentLoaded', needPage)
 
-document.addEventListener('DOMContentLoaded', needPage)
+// const changeHeaderColor = function() {
+//   let inputColor = document.querySelector('#header_color')
 
-const changeHeaderColor = function() {
-  let inputColor = document.querySelector('#header_color')
+//   if(!inputColor) {
+//     return
+//   } else {
+//     inputColor.addEventListener('input', function() {
+//       document.querySelector('.user-header').style.background = inputColor.value
+//     })
+//   }
+// }
 
-  if(!inputColor) {
-    return
-  } else {
-    inputColor.addEventListener('input', function() {
-      document.querySelector('.user-header').style.background = inputColor.value
-    })
-  }
-}
-
-document.addEventListener('DOMContentLoaded', changeHeaderColor)
+// document.addEventListener('DOMContentLoaded', changeHeaderColor)

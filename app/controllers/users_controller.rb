@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   helper_method :user
 
+  before_action :authorize_user, only: %i[edit destroy update]
+
   def index
     @users = User.all
   end
