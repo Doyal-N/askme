@@ -5,6 +5,7 @@ class User < ApplicationRecord
   DIGEST = OpenSSL::Digest.new('SHA256')
   EMAIL_FORMAT = /\A\w+@\w+\.[a-z]+\z/.freeze
   USERNAME_FORMAT = /\A\w+\z/.freeze
+  COLOR = /\A#\h+\z/.freeze
 
   attr_accessor :password
 
@@ -16,6 +17,7 @@ class User < ApplicationRecord
   validates :username, length: { maximum: 40 }
   validates :email, format: { with: EMAIL_FORMAT }
   validates :username, format: { with: USERNAME_FORMAT }
+  validates :header_color, format: { with: COLOR }
 
   before_validation :normalize_username, :normalize_email
   before_save :encrypt_password
