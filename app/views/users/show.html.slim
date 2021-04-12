@@ -9,7 +9,7 @@
       = link_to 'Удалить профиль', user_path(user), method: :delete, data: { confirm: 'Вы уверены?' }
 
   .user-image-div
-    = image_tag(@user.decorate.user_avatar, class: 'user-image', alt: '[Фото]')
+    = image_tag(user.decorate.user_avatar, class: 'user-image', alt: '[Фото]')
 
   h2.title-small.buffer-both
     .count-info

@@ -1,5 +1,5 @@
 - if resource.errors.any?
   .form-errors
     ul
-      -for message in resource.errors.full_messages
+      -resource.errors.full_messages.each do |message|
         li.form-error-message= message
