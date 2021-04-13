@@ -39,8 +39,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    current_user.destroy
-    session[:user_id] = nil
+    user.destroy
+    session[:user_id] = nil #or reset_session
     redirect_to root_path, notice: 'Профиль удален, приходите еще!'
   end
 
