@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2021_04_22_093133) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_hashtags_on_name", unique: true
   end
 
   create_table "hashtags_questions", force: :cascade do |t|
