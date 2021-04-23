@@ -1,3 +1,5 @@
+document.addEventListener
+
 const needPage = function() {
   let askButton = document.querySelector('#ask-button')
 
@@ -12,8 +14,10 @@ const needPage = function() {
     askButton.addEventListener('click', toggleForm)
   }
 }
+
+document.addEventListener('DOMContentLoaded', needPage)
+
 //изменение цвета шапки, можно сделать реактивно потом
-// document.addEventListener('DOMContentLoaded', needPage)
 
 // const changeHeaderColor = function() {
 //   let inputColor = document.querySelector('#header_color')
