@@ -1,2 +1,2 @@
-h1 Hashtags#show
-p Find me in app/views/hashtags/show.html.slim
+h1.has-text-white= "Вопросы с хештегом #{@hashtag.name}"
+= render partial: 'questions/question', collection: @questions

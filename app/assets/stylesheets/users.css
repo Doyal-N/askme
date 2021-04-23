@@ -7,6 +7,10 @@
   color: white;
 }
 
+.user-header a {
+  color: whitesmoke;
+}
+
 .user-image-div {
   width: 100px;
   height: 100px;
