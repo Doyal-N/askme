@@ -1,7 +1,8 @@
 class Hashtag < ApplicationRecord
   LINE = /#[[:word:]]+/.freeze
 
-  has_and_belongs_to_many :questions
+  has_many :hashtag_question, dependent: :delete_all
+  has_many :questions, dependent: :destroy, through: :hashtag_question
 
   validates :name, presence: true, uniqueness: true, format: { with: LINE }, length: { maximum: 20 }
 
