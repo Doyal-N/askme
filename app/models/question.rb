@@ -12,14 +12,11 @@ class Question < ApplicationRecord
   private
 
   def save_hashtags
-    find_patterns.each do |tag|
-      hashtags = Hashtag.find_or_create_by(name: tag)
-    end
-    hashtags
+    self.hashtags << find_patterns.map { |name| Hashtag.create(name: name) }
   end
 
   def find_patterns
-    tags_to_answer =  answer&.scan(Hashtag::LINE) || []
-    text.scan(Hashtag::LINE) | tags_to_answer
+    answer_tags =  answer&.scan(Hashtag::LINE) || []
+    text.scan(Hashtag::LINE) | answer_tags
   end
 end
