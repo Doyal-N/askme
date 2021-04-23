@@ -14,7 +14,7 @@ class Question < ApplicationRecord
   private
 
   def save_hashtags
-    self.hashtags << find_patterns.map { |name| Hashtag.find_or_create_by(name: name) }
+    self.hashtags = find_patterns.map { |name| Hashtag.find_or_create_by(name: name.downcase) }
   end
 
   def find_patterns
