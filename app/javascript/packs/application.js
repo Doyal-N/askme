@@ -8,6 +8,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import 'packs/users'
 import "@fortawesome/fontawesome-free/css/all"
+import "bulma/bulma"
 
 Rails.start()
 ActiveStorage.start()
