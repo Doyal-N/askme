@@ -10,6 +10,9 @@
     .question-date
       = question.decorate.normalize_date
 
+    /or uniq
+    = render partial: 'hashtags/hashtag', collection: question.hashtags.distinct
+
   -if question.user == current_user
     .question-actions
       = link_to edit_question_path(question)
