@@ -65,8 +65,6 @@ GEM
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
     ast (2.4.2)
-    bootsnap (1.7.3)
-      msgpack (~> 1.0)
     builder (3.2.4)
     byebug (11.1.3)
     concurrent-ruby (1.1.8)
@@ -100,7 +98,6 @@ GEM
     mini_mime (1.0.3)
     mini_portile2 (2.5.0)
     minitest (5.14.4)
-    msgpack (1.4.2)
     nio4r (2.5.7)
     nokogiri (1.11.2)
       mini_portile2 (~> 2.5.0)
@@ -171,16 +168,6 @@ GEM
       rack (>= 1.1)
       rubocop (>= 0.90.0, < 2.0)
     ruby-progressbar (1.11.0)
-    sass-rails (6.0.0)
-      sassc-rails (~> 2.1, >= 2.1.1)
-    sassc (2.4.0)
-      ffi (~> 1.9)
-    sassc-rails (2.1.2)
-      railties (>= 4.0.0)
-      sassc (>= 2.0)
-      sprockets (> 3.0)
-      sprockets-rails
-      tilt
     semantic_range (3.0.0)
     slim (4.1.0)
       temple (>= 0.7.6, < 0.9)
@@ -216,7 +203,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootsnap (>= 1.4.4)
   byebug
   dotenv-rails
   draper
@@ -226,7 +212,6 @@ DEPENDENCIES
   rails (~> 6.1.3)
   rails-i18n
   rubocop-rails
-  sass-rails (>= 6)
   slim-rails
   webpacker (~> 5.0)
 
